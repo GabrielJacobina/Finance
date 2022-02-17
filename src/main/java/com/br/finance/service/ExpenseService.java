@@ -1,12 +1,10 @@
 package com.br.finance.service;
 
-import com.br.finance.repository.ExpenseRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.br.finance.model.Expense;
 
-@Service
-@AllArgsConstructor
-public class ExpenseService {
+import java.util.List;
 
-    private final ExpenseRepository expenseRepository;
+public interface ExpenseService {
+
+    List<Expense> findAll();
 }

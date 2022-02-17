@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: finance
+  datasource:
+    url: jdbc:postgresql://localhost:5432/finance
+    username: finance
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update

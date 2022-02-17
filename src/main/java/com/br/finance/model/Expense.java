@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -17,5 +18,6 @@ public class Expense {
     private Long id;
     private String name;
     private Double value;
+    private LocalDate dueDate;
     private TypeExpenseEnum typeExpenseEnum;
 }
