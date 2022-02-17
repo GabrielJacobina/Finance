@@ -12,4 +12,6 @@ public abstract class RevenueMapper {
 
     public abstract Revenue revenueRequestBodytoRevenue(RevenueRequestBody revenueRequestBody);
 
+    public abstract RevenueRequestBody revenuetoRevenueRequestBody(Revenue revenue);
+
 }
