@@ -19,5 +19,5 @@ public class Expense {
     private String name;
     private Double value;
     private LocalDate dueDate;
-    private TypeExpenseEnum typeExpenseEnum;
+    private TypeExpenseEnum type;
 }
