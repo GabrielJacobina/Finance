@@ -1,4 +1,4 @@
-package com.br.finance.dto;
+package com.br.finance.requests;
 
 import com.br.finance.enumeration.StatusEnum;
 import com.br.finance.enumeration.TypeExpenseEnum;

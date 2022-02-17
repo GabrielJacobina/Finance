@@ -1,7 +1,7 @@
 package com.br.finance.service.impl;
 
-import com.br.finance.dto.RevenueRequestBody;
-import com.br.finance.dto.RevenuesResponseBody;
+import com.br.finance.requests.RevenueRequestBody;
+import com.br.finance.responses.RevenuesResponseBody;
 import com.br.finance.model.Revenue;
 import com.br.finance.repository.RevenueRepository;
 import com.br.finance.service.RevenueService;

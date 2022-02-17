@@ -1,5 +1,6 @@
-package com.br.finance.dto;
+package com.br.finance.responses;
 
+import com.br.finance.requests.ExpenseRequestBody;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +10,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class RevenuesResponseBody {
+public class ExpenseResponseBody {
 
-    private List<RevenueRequestBody> revenues;
+    private List<ExpenseRequestBody> expenses;
     private Double total;
 }

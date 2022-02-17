@@ -1,6 +1,6 @@
 package com.br.finance.mapper;
 
-import com.br.finance.dto.RevenueRequestBody;
+import com.br.finance.requests.RevenueRequestBody;
 import com.br.finance.model.Revenue;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

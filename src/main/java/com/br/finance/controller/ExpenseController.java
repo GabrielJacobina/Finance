@@ -1,7 +1,8 @@
 package com.br.finance.controller;
 
-import com.br.finance.dto.ExpenseRequestBody;
 import com.br.finance.model.Expense;
+import com.br.finance.requests.ExpenseRequestBody;
+import com.br.finance.responses.ExpenseResponseBody;
 import com.br.finance.service.ExpenseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,12 +19,17 @@ public class ExpenseController {
     private final ExpenseService expenseService;
 
     @GetMapping
-    public ResponseEntity<List<Expense>> findAll() {
+    public ResponseEntity<ExpenseResponseBody> findAll() {
         return new ResponseEntity<>(expenseService.findAll(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<Expense> save(@RequestBody ExpenseRequestBody expenseRequestBody) {
         return new ResponseEntity<>(expenseService.save(expenseRequestBody), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/calculate")
+    public ResponseEntity<ExpenseResponseBody> calculateExpenses(@RequestBody List<Expense> expenses) {
+        return new ResponseEntity<>(expenseService.calculateExpenses(expenses), HttpStatus.OK);
     }
 }
