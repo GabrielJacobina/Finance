@@ -9,6 +9,7 @@ import com.br.finance.service.exceptions.BadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,13 @@ public class RevenueServiceImpl implements RevenueService {
     @Override
     public RevenuesResponseBody findAll() {
         return this.calculateRevenues(revenueRepository.findAll());
+    }
+
+    @Override
+    public RevenuesResponseBody findAllByMonth(LocalDate date) {
+        LocalDate dateInit = LocalDate.of(date.getYear(), date.getMonth(), 1);
+        LocalDate dateFinal = LocalDate.of(date.getYear(), date.getMonth(), date.lengthOfMonth());
+        return this.calculateRevenues(revenueRepository.findAllByDateBetween(dateInit, dateFinal));
     }
 
     private Revenue findById(Long id) {

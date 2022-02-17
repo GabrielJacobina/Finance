@@ -11,6 +11,7 @@ import com.br.finance.service.exceptions.BadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +36,13 @@ public class ExpenseServiceImpl implements ExpenseService {
     @Override
     public ExpenseResponseBody findAllByType(TypeExpenseEnum type) {
         return this.calculateExpenses(expenseRepository.findAllByType(type));
+    }
+
+    @Override
+    public ExpenseResponseBody findAllByMonth(LocalDate date) {
+        LocalDate dateInit = LocalDate.of(date.getYear(), date.getMonth(), 1);
+        LocalDate dateFinal = LocalDate.of(date.getYear(), date.getMonth(), date.lengthOfMonth());
+        return this.calculateExpenses(expenseRepository.findAllByDueDateBetween(dateInit, dateFinal));
     }
 
     private Expense findById(Long id) {

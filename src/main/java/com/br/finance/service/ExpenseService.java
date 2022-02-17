@@ -6,6 +6,7 @@ import com.br.finance.model.Expense;
 import com.br.finance.requests.ExpenseRequestBody;
 import com.br.finance.responses.ExpenseResponseBody;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ExpenseService {
@@ -15,6 +16,8 @@ public interface ExpenseService {
     ExpenseResponseBody findAllByStatus(StatusEnum status);
 
     ExpenseResponseBody findAllByType(TypeExpenseEnum type);
+
+    ExpenseResponseBody findAllByMonth(LocalDate date);
 
     Expense save(ExpenseRequestBody expenseRequestBody);
 

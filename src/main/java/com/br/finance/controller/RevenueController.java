@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -21,6 +22,11 @@ public class RevenueController {
     @GetMapping
     public ResponseEntity<RevenuesResponseBody> findAll() {
         return new ResponseEntity<>(revenueService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/list-month")
+    public ResponseEntity<RevenuesResponseBody> findAllByMonthActual() {
+        return new ResponseEntity<>(revenueService.findAllByMonth(LocalDate.now()), HttpStatus.OK);
     }
 
     @PostMapping
