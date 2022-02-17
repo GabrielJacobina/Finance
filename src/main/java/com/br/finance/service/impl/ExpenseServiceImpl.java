@@ -7,6 +7,7 @@ import com.br.finance.repository.ExpenseRepository;
 import com.br.finance.requests.ExpenseRequestBody;
 import com.br.finance.responses.ExpenseResponseBody;
 import com.br.finance.service.ExpenseService;
+import com.br.finance.service.exceptions.BadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -36,10 +37,20 @@ public class ExpenseServiceImpl implements ExpenseService {
         return this.calculateExpenses(expenseRepository.findAllByType(type));
     }
 
+    private Expense findById(Long id) {
+        return expenseRepository.findById(id)
+                .orElseThrow(() -> new BadRequestException("Expense not found"));
+    }
+
     @Override
     public Expense save(ExpenseRequestBody expenseRequestBody) {
         Expense expense = INSTANCE.expenseRequestBodytoExpense(expenseRequestBody);
         return expenseRepository.save(expense);
+    }
+
+    @Override
+    public void delete(Long id) {
+        this.expenseRepository.delete(findById(id));
     }
 
     @Override

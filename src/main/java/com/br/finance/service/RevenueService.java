@@ -13,4 +13,6 @@ public interface RevenueService {
     Revenue save(RevenueRequestBody revenueRequestBody);
 
     RevenuesResponseBody calculateRevenues(List<Revenue> revenues);
+
+    void delete(Long id);
 }

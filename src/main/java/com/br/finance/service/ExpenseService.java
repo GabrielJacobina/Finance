@@ -18,5 +18,7 @@ public interface ExpenseService {
 
     Expense save(ExpenseRequestBody expenseRequestBody);
 
+    void delete(Long id);
+
     ExpenseResponseBody calculateExpenses(List<Expense> expenses);
 }

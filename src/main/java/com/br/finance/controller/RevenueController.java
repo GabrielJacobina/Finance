@@ -32,4 +32,10 @@ public class RevenueController {
     public ResponseEntity<RevenuesResponseBody> calculateExpenses(@RequestBody List<Revenue> revenues) {
         return new ResponseEntity<>(revenueService.calculateRevenues(revenues), HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        revenueService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

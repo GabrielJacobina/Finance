@@ -44,4 +44,10 @@ public class ExpenseController {
     public ResponseEntity<ExpenseResponseBody> calculateExpenses(@RequestBody List<Expense> expenses) {
         return new ResponseEntity<>(expenseService.calculateExpenses(expenses), HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        expenseService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
