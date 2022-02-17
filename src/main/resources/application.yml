@@ -1,6 +1,12 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /finance
+
 spring:
   application:
     name: finance
+
   datasource:
     url: jdbc:postgresql://localhost:5432/finance
     username: finance
