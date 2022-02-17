@@ -24,11 +24,13 @@ public class RevenueServiceImpl implements RevenueService {
         return this.calculateRevenues(revenueRepository.findAll());
     }
 
+    @Override
     public Revenue save(RevenueRequestBody expenseRequestBody) {
         Revenue revenue = INSTANCE.revenueRequestBodytoRevenue(expenseRequestBody);
         return revenueRepository.save(revenue);
     }
 
+    @Override
     public RevenuesResponseBody calculateRevenues(List<Revenue> revenues) {
         RevenuesResponseBody revenuesResponseBody = new RevenuesResponseBody(new ArrayList<>(), 0D);
         for (Revenue revenue: revenues) {

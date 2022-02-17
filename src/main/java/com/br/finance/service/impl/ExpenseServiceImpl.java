@@ -1,5 +1,7 @@
 package com.br.finance.service.impl;
 
+import com.br.finance.enumeration.StatusEnum;
+import com.br.finance.enumeration.TypeExpenseEnum;
 import com.br.finance.model.Expense;
 import com.br.finance.repository.ExpenseRepository;
 import com.br.finance.requests.ExpenseRequestBody;
@@ -24,11 +26,23 @@ public class ExpenseServiceImpl implements ExpenseService {
         return this.calculateExpenses(expenseRepository.findAll());
     }
 
+    @Override
+    public ExpenseResponseBody findAllByStatus(StatusEnum status) {
+        return this.calculateExpenses(expenseRepository.findAllByStatus(status));
+    }
+
+    @Override
+    public ExpenseResponseBody findAllByType(TypeExpenseEnum type) {
+        return this.calculateExpenses(expenseRepository.findAllByType(type));
+    }
+
+    @Override
     public Expense save(ExpenseRequestBody expenseRequestBody) {
         Expense expense = INSTANCE.expenseRequestBodytoExpense(expenseRequestBody);
         return expenseRepository.save(expense);
     }
 
+    @Override
     public ExpenseResponseBody calculateExpenses(List<Expense> expenses) {
         ExpenseResponseBody expensesResponseBody = new ExpenseResponseBody(new ArrayList<>(), 0D);
         for (Expense expense: expenses) {

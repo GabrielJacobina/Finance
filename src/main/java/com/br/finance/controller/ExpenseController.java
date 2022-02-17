@@ -1,5 +1,7 @@
 package com.br.finance.controller;
 
+import com.br.finance.enumeration.StatusEnum;
+import com.br.finance.enumeration.TypeExpenseEnum;
 import com.br.finance.model.Expense;
 import com.br.finance.requests.ExpenseRequestBody;
 import com.br.finance.responses.ExpenseResponseBody;
@@ -21,6 +23,16 @@ public class ExpenseController {
     @GetMapping
     public ResponseEntity<ExpenseResponseBody> findAll() {
         return new ResponseEntity<>(expenseService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/list-status")
+    public ResponseEntity<ExpenseResponseBody> findAllByStatus(@RequestParam StatusEnum status) {
+        return new ResponseEntity<>(expenseService.findAllByStatus(status), HttpStatus.OK);
+    }
+
+    @GetMapping("/list-type")
+    public ResponseEntity<ExpenseResponseBody> findAllByType(@RequestParam TypeExpenseEnum type) {
+        return new ResponseEntity<>(expenseService.findAllByType(type), HttpStatus.OK);
     }
 
     @PostMapping
