@@ -39,8 +39,8 @@ public class RevenueServiceImpl implements RevenueService {
     }
 
     @Override
-    public Revenue save(RevenueRequestBody expenseRequestBody) {
-        Revenue revenue = INSTANCE.revenueRequestBodytoRevenue(expenseRequestBody);
+    public Revenue save(RevenueRequestBody revenueRequestBody) {
+        Revenue revenue = INSTANCE.revenueRequestBodytoRevenue(revenueRequestBody);
         return revenueRepository.save(revenue);
     }
 
