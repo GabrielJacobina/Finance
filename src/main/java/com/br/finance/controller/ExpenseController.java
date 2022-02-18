@@ -51,6 +51,12 @@ public class ExpenseController {
         return new ResponseEntity<>(expenseService.calculateExpenses(expenses), HttpStatus.OK);
     }
 
+    @PutMapping("/status/{id}")
+    public ResponseEntity<Void> updateStatus(@PathVariable Long id, @RequestParam StatusEnum status) {
+        expenseService.updateStatus(id, status);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         expenseService.delete(id);

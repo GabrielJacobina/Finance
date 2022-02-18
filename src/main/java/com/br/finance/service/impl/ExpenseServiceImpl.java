@@ -70,4 +70,11 @@ public class ExpenseServiceImpl implements ExpenseService {
         }
         return expensesResponseBody;
     }
+
+    @Override
+    public void updateStatus(Long id, StatusEnum status) {
+        Expense expense = findById(id);
+        expense.setStatus(status);
+        expenseRepository.save(expense);
+    }
 }

@@ -24,4 +24,6 @@ public interface ExpenseService {
     void delete(Long id);
 
     ExpenseResponseBody calculateExpenses(List<Expense> expenses);
+
+    void updateStatus(Long id, StatusEnum status);
 }
