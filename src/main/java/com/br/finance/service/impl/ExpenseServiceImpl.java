@@ -7,7 +7,7 @@ import com.br.finance.repository.ExpenseRepository;
 import com.br.finance.requests.ExpenseRequestBody;
 import com.br.finance.responses.ExpenseResponseBody;
 import com.br.finance.service.ExpenseService;
-import com.br.finance.service.exceptions.BadRequestException;
+import com.br.finance.exceptions.BadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

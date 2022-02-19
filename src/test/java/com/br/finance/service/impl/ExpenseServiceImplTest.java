@@ -5,7 +5,7 @@ import com.br.finance.enumeration.TypeExpenseEnum;
 import com.br.finance.model.Expense;
 import com.br.finance.repository.ExpenseRepository;
 import com.br.finance.responses.ExpenseResponseBody;
-import com.br.finance.service.exceptions.BadRequestException;
+import com.br.finance.exceptions.BadRequestException;
 import com.br.finance.util.ExpenseCreator;
 import com.br.finance.util.ExpenseRequestBodyCreator;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,4 +1,4 @@
-package com.br.finance.service.exceptions;
+package com.br.finance.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

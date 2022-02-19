@@ -1,10 +1,9 @@
 package com.br.finance.service.impl;
 
-import com.br.finance.enumeration.StatusEnum;
 import com.br.finance.model.Revenue;
 import com.br.finance.repository.RevenueRepository;
 import com.br.finance.responses.RevenuesResponseBody;
-import com.br.finance.service.exceptions.BadRequestException;
+import com.br.finance.exceptions.BadRequestException;
 import com.br.finance.util.RevenueCreator;
 import com.br.finance.util.RevenueResquestBodyCreator;
 import org.junit.jupiter.api.BeforeEach;

@@ -5,7 +5,7 @@ import com.br.finance.responses.RevenuesResponseBody;
 import com.br.finance.model.Revenue;
 import com.br.finance.repository.RevenueRepository;
 import com.br.finance.service.RevenueService;
-import com.br.finance.service.exceptions.BadRequestException;
+import com.br.finance.exceptions.BadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
