@@ -6,7 +6,7 @@ import com.br.finance.model.Expense;
 
 import java.time.LocalDate;
 
-public class ExpanseCreator {
+public class ExpenseCreator {
 
     public static Expense createExpenseToBeSaved() {
         return Expense.builder()
