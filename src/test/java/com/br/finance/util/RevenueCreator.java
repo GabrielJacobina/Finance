@@ -6,6 +6,15 @@ import java.time.LocalDate;
 
 public class RevenueCreator {
 
+    public static Revenue createRevenueToBeSaved() {
+        return Revenue.builder()
+                .name("Global")
+                .value(8054D)
+                .date(LocalDate.now())
+                .build();
+
+    }
+
     public static Revenue createValidRevenue() {
         return Revenue.builder()
                 .id(1L)
