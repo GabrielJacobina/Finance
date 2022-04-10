@@ -31,5 +31,7 @@ docker-build:
 deploy:
   image: bitnami/kubectl
   stage: deploy
+  tags:
+    - k8s-oci
   script:
     - kubectl apply -f finance-deploy.yaml
