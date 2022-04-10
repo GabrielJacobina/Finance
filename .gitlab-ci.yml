@@ -29,7 +29,9 @@ docker-build:
     - docker push gabrieljacobina/finance-docker:$CI_PIPELINE_ID
 
 deploy:
-  image: bitnami/kubectl
+  image: 
+    name: bitnami/kubectl
+    entrypoint: [""]
   stage: deploy
   tags:
     - k8s-oci
