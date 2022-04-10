@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 
 @ExtendWith(SpringExtension.class)
 class RevenueServiceImplTest {
@@ -35,18 +36,17 @@ class RevenueServiceImplTest {
         BDDMockito.when(revenueRepositoryMock.findAll())
                 .thenReturn(List.of(RevenueCreator.createValidRevenue()));
 
-        LocalDate date = LocalDate.now();
-        BDDMockito.when(revenueRepositoryMock.findAllByDateBetween(LocalDate.of(date.getYear(), date.getMonth(),1),
-                        LocalDate.of(date.getYear(), date.getMonth(),date.lengthOfMonth())))
+        BDDMockito.when(revenueRepositoryMock.findAllByDateBetween(any(),
+                        any()))
                 .thenReturn(List.of(RevenueCreator.createValidRevenue()));
 
-        BDDMockito.when(revenueRepositoryMock.save(ArgumentMatchers.any(Revenue.class)))
+        BDDMockito.when(revenueRepositoryMock.save(any(Revenue.class)))
                 .thenReturn(RevenueCreator.createValidRevenue());
 
         BDDMockito.when(revenueRepositoryMock.findById(ArgumentMatchers.anyLong()))
                         .thenReturn(Optional.of(RevenueCreator.createValidRevenue()));
 
-        BDDMockito.doNothing().when(revenueRepositoryMock).delete(ArgumentMatchers.any(Revenue.class));
+        BDDMockito.doNothing().when(revenueRepositoryMock).delete(any(Revenue.class));
     }
 
     @Test
