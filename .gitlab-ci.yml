@@ -1,0 +1,32 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+variables:
+  DOCKER_DRIVER: overlay
+
+stages:
+  - build
+  - package
+  - deploy
+
+maven-build:
+  image: maven:3-jdk-11
+  stage: build
+  script: "mvn package -B"
+  artifacts:
+    paths:
+    - target/*.jar
+
+docker-build:
+  stage: package
+  script:
+    - docker build -t gabrieljacobina/finance-docker:$CI_PIPELINE_ID
+    - docker push gabrieljacobina/finance-docker:$CI_PIPELINE_ID
+
+deploy:
+  image: bitname/kubectl
+  stage: deploy
+  script:
+    - kubectl apply -f finance-deploy.yaml
