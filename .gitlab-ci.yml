@@ -22,7 +22,7 @@ maven-build:
 docker-build:
   stage: package
   script:
-    - docker build -t gabrieljacobina/finance-docker:$CI_PIPELINE_ID
+    - docker build -t gabrieljacobina/finance-docker:$CI_PIPELINE_ID .
     - docker push gabrieljacobina/finance-docker:$CI_PIPELINE_ID
 
 deploy:
