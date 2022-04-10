@@ -21,6 +21,9 @@ maven-build:
 
 docker-build:
   stage: package
+  before_script:
+    - docker info
+    - docker login --username $REGISTRY_USERNAME --password $REGISTRY_PASSWORD
   script:
     - docker build -t gabrieljacobina/finance-docker:$CI_PIPELINE_ID .
     - docker push gabrieljacobina/finance-docker:$CI_PIPELINE_ID
